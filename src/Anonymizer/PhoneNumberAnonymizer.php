@@ -9,7 +9,7 @@ use MakinaCorpus\DbToolsBundle\Attribute\AsAnonymizer;
 use MakinaCorpus\QueryBuilder\Query\Update;
 
 /**
- * Anonymize french telephone numbers.
+ * Anonymize American telephone numbers.
  *
  * This will create phone number with reserved prefixes for fiction and tests:
  * 1 212-555 et 1 213-555
@@ -29,7 +29,7 @@ use MakinaCorpus\QueryBuilder\Query\Update;
     pack: 'en-us',
     description: <<<TXT
     Anonymize with a random fictional American phone number.
-    You can choose if you want a "landline" or a "mobile" phone number with option 'mode'
+    You can choose if you want a "NY", "CA", "IL" or a "MA" phone number with option 'state'
     TXT
 )]
 class PhoneNumberAnonymizer extends AbstractAnonymizer
@@ -45,13 +45,13 @@ class PhoneNumberAnonymizer extends AbstractAnonymizer
             $this->columnName,
             $this->getSetIfNotNullExpression(
                 $expr->concat(
-                    match ($this->options->get('mode', 'NY')) {
-                        'NY' => '1 212 555',
-                        'CA' => '1 213 555',
-                        'IL' => '1 312 555',
-                        'MA' => '1 617 555',
+                    match ($this->options->get('state', 'NY')) {
+                        'NY' => '1 212 555 ',
+                        'CA' => '1 213 555 ',
+                        'IL' => '1 312 555 ',
+                        'MA' => '1 617 555 ',
 
-                        default => throw new \InvalidArgumentException('"mode" option can be "mobile", "landline"'),
+                        default => throw new \InvalidArgumentException('"state" option can be "NY", "CA", "IL" or a "MA"'),
                     },
                     $expr->lpad($this->getRandomIntExpression(9999), 4, '0')
                 ),
