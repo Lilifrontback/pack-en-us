@@ -1,20 +1,21 @@
-# DbToolsBundle - Pack fr-Fr
-A pack of anonymizers for fr-FR locale
+# DbToolsBundle - Pack en-US
+A pack of anonymizers for en-US locale
 
 This pack provides:
 
-* `fr-fr.address`: Same as address from core but with a sample of 500 dumb french addresses
-* `fr-fr.firstname`: Anonymize with a random french first names from a sample of ~500 items
-* `fr-fr.lastname`: Anonymize with a random french last names from a sample of ~500 items
-* `fr-fr.phone`: Anonymize french telephone numbers, (only option is `mode`: `mobile` or `landline`)
-* `fr-fr.secu`: Anonymize french social sécurity numbers 
+* `en-us.address`: Same as address from core but with a sample of 500 dumb American addresses
+* `en-us.firstname`: Anonymize with a random American first names from a sample of ~500 items
+* `en-us.lastname`: Anonymize with a random American last names from a sample of ~500 items
+* `en-us.phone`: Anonymize American telephone numbers, (only option is `mode`: `mobile` or `landline`)
+* `en-us.secu`: Anonymize American social sécurity numbers 
+* `en-us.cb` : Anonymize credit card numbers with a sample of 40 items
 
 ## Installation
 
 Run the following command to add this pack to your application:
 
 ```sh
-composer require dbtoolsbundle/pack-fr-fr
+composer require dbtoolsbundle/pack-en-us
 ```
 
 Learn more about how to use this package reading [the DbToolsBundle documentation](https://dbtoolsbundle.readthedocs.io/) on Read the Docs.
