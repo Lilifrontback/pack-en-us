@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace DbToolsBundle\PackDeDE\Anonymizer;
+namespace DbToolsBundle\PackEnUS\Anonymizer;
 
 use MakinaCorpus\DbToolsBundle\Anonymization\Anonymizer\AbstractEnumAnonymizer;
 use MakinaCorpus\DbToolsBundle\Attribute\AsAnonymizer;
 
 #[AsAnonymizer(
     name: 'cb',
-    pack: 'de-de',
+    pack: 'en-us',
     description: <<<TXT
     Anonymize with a random impossible credit card numbers from a sample of 40 items.
     TXT
