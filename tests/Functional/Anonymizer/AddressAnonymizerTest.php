@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DbToolsBundle\PackFrFR\Tests\Functional\Anonymizer;
+namespace DbToolsBundle\PackEnUS\Tests\Functional\Anonymizer;
 
 use MakinaCorpus\DbToolsBundle\Anonymization\Config\AnonymizationConfig;
 use MakinaCorpus\DbToolsBundle\Anonymization\Anonymizator;
@@ -22,9 +22,9 @@ class AddressAnonymizerTest extends FunctionalTestCase
                 'id' => 'integer',
                 'my_street_address' => 'string',
                 'my_secondary_address' => 'string',
-                'my_postal_code' => 'string',
-                'my_locality' => 'string',
-                'my_region' => 'string',
+                'my_city' => 'string',
+                'my_state' => 'string',
+                'my_ZIP code' => 'string',
                 'my_country' => 'string',
             ],
             [
@@ -32,18 +32,18 @@ class AddressAnonymizerTest extends FunctionalTestCase
                     'id' => '1',
                     'my_street_address' => 'Rue Aristide Briand',
                     'my_secondary_address' => 'La maison aux volets bleus',
-                    'my_postal_code' => '44400',
-                    'my_locality' => 'REZE',
-                    'my_region' => 'Pays de loire',
+                    'my_city' => 'REZE',
+                    'my_state' => 'Pays de loire',
+                    'my_ZIP code' => '44400',
                     'my_country' => 'FRANCE',
                 ],
                 [
                     'id' => '2',
                     'my_street_address' => 'Rue Jean Jaures',
                     'my_secondary_address' => 'Au dernier étage',
-                    'my_postal_code' => '44000',
-                    'my_locality' => 'Toto-les-bains',
-                    'my_region' => 'Pays de loire',
+                    'my_city' => 'Toto-les-bains',
+                    'my_state' => 'Pays de loire',
+                    'my_ZIP code' => '44000',
                     'my_country' => 'FRANCE',
                 ],
                 [
@@ -59,13 +59,13 @@ class AddressAnonymizerTest extends FunctionalTestCase
         $config->add(new AnonymizerConfig(
             'table_test',
             'data',
-            'fr-fr.address',
+            'en-us.address',
             new Options([
                 'street_address' => 'my_street_address',
                 'secondary_address' => 'my_secondary_address',
-                'postal_code' => 'my_postal_code',
-                'locality' => 'my_locality',
-                'region' => 'my_region',
+                'city' => 'my_city',
+                'state' => 'my_state',
+                'ZIP code' => 'my_ZIP code',
                 'country' => 'my_country',
             ])
         ));
@@ -87,15 +87,15 @@ class AddressAnonymizerTest extends FunctionalTestCase
         $this->assertNotNull($datas[0]);
         $this->assertNotSame('Rue Aristide Briand', $datas[0]['my_street_address']);
         $this->assertNotSame('La maison aux volets bleus', $datas[0]['my_secondary_address']);
-        $this->assertNotSame('44400', $datas[0]['my_postal_code']);
-        $this->assertNotSame('REZE', $datas[0]['my_locality']);
-        $this->assertNotSame('Pays de loire', $datas[0]['my_region']);
+        $this->assertNotSame('REZE', $datas[0]['my_city']);
+        $this->assertNotSame('Pays de loire', $datas[0]['my_state']);
+        $this->assertNotSame('44400', $datas[0]['my_ZIP code']);
         $this->assertNotNull($datas[1]);
         $this->assertNotSame('Rue Jean Jaures', $datas[1]['my_street_address']);
         $this->assertNotSame('Au dernier étage', $datas[1]['my_secondary_address']);
-        $this->assertNotSame('44000', $datas[1]['my_postal_code']);
-        $this->assertNotSame('Toto-les-bains', $datas[1]['my_locality']);
-        $this->assertNotSame('Pays de loire', $datas[1]['my_region']);
+        $this->assertNotSame('Toto-les-bains', $datas[1]['my_city']);
+        $this->assertNotSame('Pays de loire', $datas[1]['my_state']);
+        $this->assertNotSame('44000', $datas[1]['my_ZIP code']);
         /*
         $this->assertNull($datas[2]['my_street_address']);
         $this->assertNull($datas[2]['my_secondary_address']);

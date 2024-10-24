@@ -1,6 +1,6 @@
 {
-    "name": "db-tools-bundle/pack-fr-fr",
-    "description": "A pack of anonymizers for fr-FR locale",
+    "name": "db-tools-bundle/pack-en-us",
+    "description": "A pack of anonymizers for en-US locale",
     "type": "db-tools-bundle-pack",
     "license": "MIT",
     "authors": [
@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "DbToolsBundle\\PackFrFR\\" : "src/"
+            "DbToolsBundle\\PackEnUS\\" : "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "DbToolsBundle\\PackFrFR\\Tests\\": "tests/"
+            "DbToolsBundle\\PackEnUS\\Tests\\": "tests/"
         }
     },
     "config": {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DbToolsBundle\PackFrFR\Tests\Functional\Anonymizer;
+namespace DbToolsBundle\PackEnUS\Tests\Functional\Anonymizer;
 
 use MakinaCorpus\DbToolsBundle\Anonymization\Config\AnonymizationConfig;
 use MakinaCorpus\DbToolsBundle\Anonymization\Anonymizator;
@@ -48,7 +48,7 @@ class PhoneNumberAnonymizerTest extends FunctionalTestCase
         $config->add(new AnonymizerConfig(
             'table_test',
             'data',
-            'fr-fr.phone',
+            'en-us.phone',
             new Options()
         ));
 
